@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+
+$:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
+
+require 'optparse'
+require 'cuechapter'
+
+options = {}
+
+opts = OptionParser.new do |opts| 
+	opts.on("-i", "--cue PATH", "Path to chesheet file") do |cue_file|
+    options[:cue] = cue_file
+  end
+  
+  opts.on("-o", "--xml [PATH]", "Path to xml file") do |xml_file|
+    options[:xml] = xml_file
+  end
+  
+  opts.on("-p", "--picture [PATH]", "Path to picture") do |pic_file|
+  	options[:pic] = pic_file
+  end
+  
+  opts.on("-l", "--link [link]", "Link for chapters") do |link|
+  	options[:link] = link
+  end
+end
+
+opts.parse!
+
+cuechapter = CueChapter.new(options[:cue], options[:xml], options[:pic], options[:link])
+cuechapter.convert
