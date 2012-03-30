@@ -20,8 +20,6 @@ module CueChapter
       end
     end
     
-    private
-    
     def chapter_xml
       xml = Builder::XmlMarkup.new(:indent => 2)
 
