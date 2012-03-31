@@ -1,7 +1,5 @@
 #!/usr/bin/env ruby
 
-$:.unshift File.join(File.dirname(__FILE__), *%w[.. lib])
-
 require 'optparse'
 require 'cuechapter'
 
@@ -27,5 +25,5 @@ end
 
 opts.parse!
 
-cuechapter = CueChapter.new(options[:cue], options[:xml], options[:pic], options[:link])
+cuechapter = CueChapter::CueChapter.new(options[:cue], options[:xml], options[:pic], options[:link])
 cuechapter.convert
