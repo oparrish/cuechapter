@@ -2,13 +2,14 @@ require 'rubycue'
 require 'builder'
 
 module CueChapter
-  class CueChapter 
-    def initialize(cue_file, xml_file=nil, image_file=nil, link=nil)
-      @cuesheet = RubyCue::Cuesheet.new(File.read(cue_file))
-      @cuesheet.parse!
+	class CueChapter < RubyCue::Cuesheet
+    def initialize(cuesheet, xml_file=nil, image_file=nil, link=nil)
+    	super(File.read(cuesheet))
+      parse!
       
       if @xml_file.nil?
-      	@xml_file=File.basename(cue_file).gsub(File.extname(cue_file),".xml")
+      	@xml_file=File.path(cuesheet).gsub(File.extname(cuesheet),".xml")
+      	puts @xml_file
       else
       	@xml_file = xml_file
       end
@@ -25,7 +26,7 @@ module CueChapter
       xml = Builder::XmlMarkup.new(:indent => 2)
 
       xml.chapters("version" => "1") {
-        @cuesheet.songs.each do |song|
+        songs.each do |song|
           xml.chapter("starttime" => "#{song[:index].minutes}:#{song[:index].seconds}") {
             xml.title "#{song[:performer]} - #{song[:title]}"
             xml.picture "#{@image_file}"
