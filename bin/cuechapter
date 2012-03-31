@@ -8,11 +8,11 @@ require 'cuechapter'
 options = {}
 
 opts = OptionParser.new do |opts| 
-	opts.on("-i", "--cue PATH", "Path to chesheet file") do |cue_file|
+	opts.on("-c", "--cue PATH", "Path to chesheet file") do |cue_file|
     options[:cue] = cue_file
   end
   
-  opts.on("-o", "--xml [PATH]", "Path to xml file") do |xml_file|
+  opts.on("-x", "--xml [PATH]", "Path to xml file") do |xml_file|
     options[:xml] = xml_file
   end
   
