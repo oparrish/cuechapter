@@ -9,7 +9,6 @@ module CueChapter
       
       if @xml_file.nil?
       	@xml_file=File.path(cuesheet).gsub(File.extname(cuesheet),".xml")
-      	puts @xml_file
       else
       	@xml_file = xml_file
       end
