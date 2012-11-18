@@ -1,8 +1,8 @@
 Gem::Specification.new do |s|
   s.name        = 'cuechapter'
   s.executables << 'cuechapter'
-  s.version     = '0.0.1'
-  s.date        = '2012-11-09'
+  s.version     = '0.0.2'
+  s.date        = '2012-11-18'
   s.summary     = "Convert a cuesheet to a chapter XML file"
   s.description = "Converts a cuesheet file into a chapter XML file that can be used by ChatperX or GarageBand/ChapterTool to add chapters to an m4a/m4b file"
   s.authors     = ["Owen Parrish"]
