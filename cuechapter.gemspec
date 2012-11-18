@@ -11,4 +11,5 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/oparrish/cuechapter'
   s.add_dependency 'rubycue', '>= 0.0.1'
   s.add_dependency 'builder', '>= 3.1.4'
+  s.license     = 'MIT'
 end
